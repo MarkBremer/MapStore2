@@ -129,10 +129,10 @@ const DownloadDialog = ({
             return;
         }
         const dialogRoot = document.querySelector('#mapstore-export');
-        dialogRoot?.setAttribute('cy-data', 'dataset-export-box');
+        dialogRoot?.setAttribute('data-ms-id', 'dataset-export-box');
 
         const formatInput = document.querySelector('#mapstore-export .mapstore-downloadoptions:not(.downloadMode) .Select-input input');
-        formatInput?.setAttribute('cy-data', 'dataset-export-select-format');
+        formatInput?.setAttribute('data-ms-id', 'dataset-export-select-format');
     }, [enabled, downloadOptions, service, showLoader]);
 
     const renderIcon = () => {
@@ -167,7 +167,7 @@ const DownloadDialog = ({
                 <button
                     onClick={onClose}
                     className="settings-panel-close close"
-                    {...{ 'cy-data': 'dataset-export-box-close' }}
+                    {...{ 'data-ms-id': 'dataset-export-box-close' }}
                 >
                     {closeGlyph ? <Glyphicon glyph={closeGlyph}/> : <span>×</span>}
                 </button>
@@ -207,7 +207,7 @@ const DownloadDialog = ({
                 <Button
                     bsStyle="primary"
                     className="download-button"
-                    {...{ 'cy-data': 'dataset-export-box-export' }}
+                    {...{ 'data-ms-id': 'dataset-export-box-export' }}
                     disabled={formatsLoading || formats.length === 0}
                     onClick={handleExport}>
                     {renderIcon()} <Message msgId="layerdownload.export" />

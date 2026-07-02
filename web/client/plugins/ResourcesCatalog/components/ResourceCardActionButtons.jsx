@@ -16,17 +16,17 @@ const ActionMenuItem = ({
     iconType,
     children,
     labelId,
-    cardCyPrefix,
-    dataCy,
+    cardMsIdPrefix,
+    dataMsId,
     ...props
 }) => {
-    const resolvedDataCy = dataCy
-        || (cardCyPrefix && glyph === 'duplicate' ? `${cardCyPrefix}-actions-clone` : null)
-        || (cardCyPrefix && glyph === 'trash' ? `${cardCyPrefix}-actions-delete` : null);
+    const resolvedDataMsId = dataMsId
+        || (cardMsIdPrefix && glyph === 'duplicate' ? `${cardMsIdPrefix}-actions-clone` : null)
+        || (cardMsIdPrefix && glyph === 'trash' ? `${cardMsIdPrefix}-actions-delete` : null);
     return (
         <MenuItem
             {...props}
-            {...resolvedDataCy ? { 'cy-data': resolvedDataCy } : {}}
+            {...resolvedDataMsId ? { 'data-ms-id': resolvedDataMsId } : {}}
         >
             {glyph ? <><Glyphicon glyph={glyph}/>{' '}</> : null}
             {labelId ? <Message msgId={labelId} /> : null}
@@ -40,7 +40,7 @@ function ResourceCardActionButtons({
     resource,
     className,
     target,
-    cardCyPrefix,
+    cardMsIdPrefix,
     ...props
 }) {
 
@@ -68,7 +68,7 @@ function ResourceCardActionButtons({
                     size="xs"
                     noCaret
                     className="_border-transparent"
-                    {...cardCyPrefix ? { 'cy-data': `${cardCyPrefix}-actions` } : {}}
+                    {...cardMsIdPrefix ? { 'data-ms-id': `${cardMsIdPrefix}-actions` } : {}}
                 >
                     <Glyphicon glyph="option-vertical" />
                 </Dropdown.Toggle>
@@ -76,7 +76,7 @@ function ResourceCardActionButtons({
                     {options.map((option) => {
                         if (option.Component) {
                             const { Component } = option;
-                            return <Component key={option.name} resource={resource} viewerUrl={viewerUrl} renderType="menuItem" target={target} component={ActionMenuItem} cardCyPrefix={cardCyPrefix} />;
+                            return <Component key={option.name} resource={resource} viewerUrl={viewerUrl} renderType="menuItem" target={target} component={ActionMenuItem} cardMsIdPrefix={cardMsIdPrefix} />;
                         }
                         return null;
                     })}

@@ -64,7 +64,7 @@ function DetailsHeader({
                             onClick={onClose}
                             square
                             borderTransparent
-                            cy-data="dataset-view-sidepanel-close"
+                            data-ms-id="dataset-view-sidepanel-close"
                         >
                             <Glyphicon glyph="1-close" />
                         </Button>
@@ -84,7 +84,7 @@ function DetailsHeader({
             <div ref={titleNodeRef}></div>
             <FlexBox className="ms-details-header-info" gap="sm" classNames={['_padding-md']}>
                 <FlexBox.Fill>
-                    <Text fontSize="lg" cy-data="dataset-view-sidepanel-title">
+                    <Text fontSize="lg" data-ms-id="dataset-view-sidepanel-title">
                         {!loading ? <Glyphicon {...icon} /> : <Spinner />}{' '}
                         {title}
                     </Text>

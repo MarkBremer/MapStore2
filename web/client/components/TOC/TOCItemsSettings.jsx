@@ -102,7 +102,7 @@ const TOCItemSettings = (props) => {
                                     <NavItemT
                                         key={'ms-tab-settings-' + tab.id}
                                         tooltip={<Message msgId={tab.tooltipId}/> }
-                                        cy-data={`edit-style-btn-${tab.glyph}`}
+                                        data-ms-id={`edit-style-btn-${tab.glyph}`}
                                         eventKey={tab.id}
                                         onClick={() => {
                                             onSetTab(tab.id);

@@ -36,8 +36,8 @@ const DropdownMenuItems = ({
                             variant="default"
                             className={itm.className}
                             showMessage
-                            dataCy={itm.dataCy}
-                            {...(itm.dataCy ? { 'cy-data': itm.dataCy } : {})}
+                            dataMsId={itm.dataMsId}
+                            {...(itm.dataMsId ? { 'data-ms-id': itm.dataMsId } : {})}
                         />
                     );
                 }
@@ -129,7 +129,7 @@ const MenuItem = ({
         src,
         toggleAttributes,
         menuItemAttributes,
-        dataCy
+        dataMsId
     } = item || {};
 
     const target = itemTarget ?? defaultTarget;
@@ -140,7 +140,7 @@ const MenuItem = ({
             size={size}
             className={className}
             component={menuItemComponent}
-            dataCy={dataCy}
+            dataMsId={dataMsId}
         />;
     }
 
@@ -215,7 +215,7 @@ const MenuItem = ({
                 href={href}
                 target={target}
                 borderTransparent
-                dataCy={dataCy}
+                dataMsId={dataMsId}
                 {...(menuItemAttributes || {})}
             >
                 {glyph ? <Glyphicon glyph={glyph} /> : null}

@@ -271,7 +271,7 @@ class SidebarMenu extends React.Component {
                             ...tool,
                             cfg: {
                                 ...(tool.cfg || {}),
-                                'cy-data': (tool.cfg && tool.cfg['cy-data']) || (tool.name ? `sidebar-btn-${tool.name}` : `tooltip-btn-${index}`)
+                                'data-ms-id': (tool.cfg && tool.cfg['data-ms-id']) || (tool.name ? `sidebar-btn-${tool.name}` : `tooltip-btn-${index}`)
                             }
                         }));
                         return (

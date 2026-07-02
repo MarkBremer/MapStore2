@@ -50,7 +50,7 @@ const isFieldLabelOnly = ({style, value}) => isEmptyValue(value) && isStyleLabel
 const DetailInfoFieldLabel = ({ field }) => {
     const label = field.labelId ? <Message msgId={field.labelId} /> : field.label;
     return isStyleLabel(field.style) && field.href
-        ? (<a href={field.href} target={field.target} {...(field['cy-data'] ? {'cy-data': field['cy-data']} : {})}>{label}</a>)
+        ? (<a href={field.href} target={field.target} {...(field['data-ms-id'] ? {'data-ms-id': field['data-ms-id']} : {})}>{label}</a>)
         : label;
 };
 
@@ -60,7 +60,7 @@ function DetailsInfoField({ field, children, className }) {
     return (
         <FlexBox gap="sm" classNames={['ms-details-info-field', '_padding-b-xs', '_row']} className={className}>
             <Text className={isLinkLabel ? '' : '_label'} fontSize="sm"><DetailInfoFieldLabel field={field} /></Text>
-            {!isLinkLabel ? <FlexBox.Fill {...(field['cy-data'] ? { 'cy-data': field['cy-data'] } : {})}>
+            {!isLinkLabel ? <FlexBox.Fill {...(field['data-ms-id'] ? { 'data-ms-id': field['data-ms-id'] } : {})}>
                 <Text fontSize="sm">{children(values)}</Text>
             </FlexBox.Fill> : null}
         </FlexBox>
@@ -169,7 +169,7 @@ function DetailsInfoFields({ fields, formatHref, editing, onChange, query = {}, 
             '_relative',
             '_padding-tb-md'
         ]}
-        cy-data="details-info-fields"
+        data-ms-id="details-info-fields"
     >
         {fields.map((field, filedIndex) => {
 
@@ -342,9 +342,9 @@ function DetailsInfo({
             selectedTabId={selectedTab ?? filteredTabs?.[0]?.id}
             onSelect={onSelectTab}
             tabs={filteredTabs.map(({Component, ...tab} = {}) => ({
-                title: <span {...(getTabCyData(tab) ? { 'cy-data': getTabCyData(tab) } : {})}><DetailInfoFieldLabel field={tab} /></span>,
+                title: <span {...(getTabCyData(tab) ? { 'data-ms-id': getTabCyData(tab) } : {})}><DetailInfoFieldLabel field={tab} /></span>,
                 eventKey: tab?.id,
-                component: <div cy-data="dataset-view-sidepanel-tab-content"><Component fields={tab?.items} {...props} /></div>
+                component: <div data-ms-id="dataset-view-sidepanel-tab-content"><Component fields={tab?.items} {...props} /></div>
             }))}
         />
     );

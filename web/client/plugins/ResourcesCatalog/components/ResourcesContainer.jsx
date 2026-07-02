@@ -64,7 +64,7 @@ const ResourcesContainer = (props) => {
                         return (
                             <li
                                 key={`${idx}:${resource?.id}`}
-                                cy-data={`dataset-card-${idx}`}
+                                data-ms-id={`dataset-card-${idx}`}
                             >
                                 <ResourceCard
                                     cardIndex={idx}
